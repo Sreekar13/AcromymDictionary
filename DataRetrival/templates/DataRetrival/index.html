@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Acronym Dictionary</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<header class="Data">
+		<h1>DICTIONARY OF ACRONYMS</h1>
+	</header>
+
+	<p><em>Please key in your acronym that is to be searched</em> 😃</p>
+<br>
+	<header>
+	<form action="/home/" method="post">
+		{% csrf_token %}
+	<input type= "text" name="key" value='{{key}}'>
+	<br>
+	<input type="submit" value="Get the description">
+	</form>
+	</header>
+
+	<header class="Data">
+		{% if key_index %}
+		<em><p>{{key_index}}</p></em>
+		{% endif %}
+	<header>
+</body>
+</html>
+
+
+
